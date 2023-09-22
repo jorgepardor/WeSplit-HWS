@@ -48,7 +48,7 @@ struct ContentView: View {
                     Picker("Propina:", selection: $tipPercentage) {
                         ForEach(0..<101) {
                             Text($0, format: .percent)
-                        }
+                        }                                
                     }
                 } header: {
                     Text("¿Cuánta propina quieres dejar?")
@@ -57,6 +57,8 @@ struct ContentView: View {
                 
                 Section {
                     Text(totalPerPerson, format: localCurrency)
+                        .foregroundColor(tipPercentage == 0 ? .red : .primary)
+
                 } header: {
                     Text("Monto a pagar por persona:")
                 }
